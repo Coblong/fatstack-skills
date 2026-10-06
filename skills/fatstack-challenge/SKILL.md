@@ -79,7 +79,9 @@ Write `docs/fatstack/features/<feature-slug>/challenge.md`:
 
 ## Edge cases
 
-- <Situation>: <expected behaviour, or "open">.
+- <Situation>: <expected behaviour, or "unknown">. (confirmed | assumed | open)
 ```
+
+Give every edge case a status, using the same meanings as above.
 
 Then show the proposed glossary terms and decisions, and use `fatstack-context` to write the ones the user agrees to. Suggest `fatstack-requirements` as the next step.
