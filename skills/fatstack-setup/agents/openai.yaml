@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fatstack Setup"
+  short_description: "Choose and record the project's ticket tracker"
+policy:
+  allow_implicit_invocation: false

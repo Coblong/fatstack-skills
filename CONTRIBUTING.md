@@ -21,7 +21,7 @@ description: Describe the concrete task this skill handles and when to use it.
 Write the instructions here.
 ```
 
-Match the folder name to the skill name. Use lowercase letters, digits, and hyphens.
+Prefix the name with `fatstack-` and match the folder name to the skill name. Use lowercase letters, digits, and hyphens.
 
 State the intended output and the decisions the agent needs to make. Explain how to handle missing information without inventing certainty. Preserve the user's ability to review and correct results.
 
@@ -34,7 +34,7 @@ Add optional resources only when needed:
 
 Link resources from `SKILL.md` and keep those links relative. Document required tools, credentials, and permissions without including secrets.
 
-Author original content. Use public skill collections as capability references, not as text to reproduce.
+Author original content. Use public skill collections as capability references, not as text to reproduce. If a comparable skill exists in Matt Pocock's collection, note in the proposal what ours does differently.
 
 ## Validate changes
 
