@@ -35,7 +35,7 @@ All skills use the `fatstack-` prefix.
 | `fatstack-challenge` | Interview the user about a feature until there is a shared understanding. |
 | `fatstack-requirements` | Turn a challenge record into a requirements document. |
 | `fatstack-tickets` | Break requirements into demonstrable tickets, agree them with the user, then create them in the tracker. |
-| `fatstack-tdd` | Build behaviour test-first in red-green-refactor cycles. |
+| `fatstack-tdd` | Build behaviour test-first in red-green cycles at agreed seams. Refactoring happens in review. |
 | `fatstack-implement` | Implement a ticket using `fatstack-tdd`, managing ticket transitions and the pull request. |
 | `fatstack-review` | Review work against its ticket, requirements, and the project's standards. |
 
