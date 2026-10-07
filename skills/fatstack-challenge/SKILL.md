@@ -10,7 +10,8 @@ Question the user about a feature until you both understand the work in the same
 ## Before the first question
 
 - Agree a short feature slug with the user, for example `saved-baskets`.
-- If `docs/fatstack/features/<feature-slug>/challenge.md` exists, read it and continue from its open questions rather than starting again.
+- Start from what the conversation has already established: treat it as answered, and skip questions it already settles.
+- If `docs/fatstack/features/<feature-slug>/challenge.md` exists, read it and continue from its open questions rather than starting again. Where it disagrees with the conversation, ask which is right.
 - Read the glossary and decision records (see the `## Fatstack` section in `AGENTS.md` or `CLAUDE.md`) and the parts of the code the feature touches.
 
 ## Ask in rounds
