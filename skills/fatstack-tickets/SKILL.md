@@ -41,6 +41,8 @@ Then ask whether the slices are the right size, whether the blockers are right, 
 
 Create the approved tickets using the operations in `tracker.md`, in dependency order so each ticket can reference the real identifiers of its blockers. Record blockers in the tracker's dependency format and set each ticket to the `ready` status. Leave existing tickets unchanged.
 
+As soon as each ticket is created, add its identifier, title, and requirements to a `## Tickets` section in `requirements.md`, so a failure part-way leaves an accurate record. If a tracker call fails, stop, tell the user which tickets were created and which were not, and continue only when they say so.
+
 Use this body for each ticket:
 
 ```markdown
@@ -63,4 +65,4 @@ Use this body for each ticket:
 
 Describe behaviour rather than file paths or code, which go stale.
 
-Finally, add a `## Tickets` section to `requirements.md` listing each ticket's identifier, title, and requirements, and give the user the list of created tickets. Suggest `fatstack-implement` on the first unblocked ticket.
+Finally, give the user the list of created tickets. Suggest `fatstack-implement` on the first unblocked ticket.
