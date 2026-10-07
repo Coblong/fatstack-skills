@@ -12,8 +12,8 @@ Synthesise what is already known into a requirements document. This is a synthes
 - Start with the current conversation: a challenge or discussion earlier in this session is the freshest source, including anything said after the challenge record was written.
 - Read the feature's challenge record at `docs/fatstack/features/<feature-slug>/challenge.md` to fill gaps. In a new session it is the main source. If the slug is unclear, list the feature folders and ask.
 - Where the conversation and the record disagree, show the difference and ask which is right.
-- If neither gives enough to work from, suggest running `fatstack-challenge` first.
 - If `requirements.md` already exists for the feature, treat it as a source too and update it rather than starting again. It may hold decisions made after the challenge record was written: keep its confirmed requirements unless the user changes them, and ask where it disagrees with the conversation or the challenge record.
+- If the conversation, the challenge record, and any existing requirements document together still give too little to work from, suggest running `fatstack-challenge` first.
 - Read the glossary and decision records (see the `## Fatstack` section in `AGENTS.md` or `CLAUDE.md`) and the parts of the code the feature touches.
 
 ## 2. Draft
