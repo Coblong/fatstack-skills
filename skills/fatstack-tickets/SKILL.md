@@ -12,7 +12,7 @@ Slice the work into tickets that each deliver something demonstrable, agree them
 
 - Start with the current conversation, then read `docs/fatstack/features/<feature-slug>/requirements.md` to fill gaps. In a new session the requirements document is the main source. Where they disagree, ask which is right. If there are no requirements to work from, suggest `fatstack-requirements` first.
 - If `requirements.md` already has a `## Tickets` section, those tickets exist: slice only the work they do not cover, and update that section rather than replacing it.
-- Read `docs/fatstack/tracker.md`. If it does not exist, offer to run `fatstack-setup`, or continue with local markdown tickets: one file per ticket at `docs/fatstack/features/<feature-slug>/tickets/<NN>-<slug>.md`, numbered from `01` in dependency order, with `Status:` and `Blocked by:` lines at the top.
+- Read `docs/fatstack/tracker.md`. If it does not exist, offer to run `fatstack-setup`, or continue with local markdown tickets: one file per ticket at `docs/fatstack/features/<feature-slug>/tickets/<NN>-<slug>.md`, numbered in dependency order after the highest existing number in that folder (from `01` if it is empty), with `Status:` and `Blocked by:` lines at the top.
 - Read the glossary, the decision records, and the code the work touches. Look for prefactoring that would make the change easier.
 
 ## 2. Slice into tracer bullets
@@ -39,7 +39,7 @@ Then ask whether the slices are the right size, whether the blockers are right, 
 
 ## 4. Create the tickets
 
-Create the approved tickets using the operations in `tracker.md`, in dependency order so each ticket can reference the real identifiers of its blockers. Record blockers in the tracker's dependency format and set each ticket to the `ready` status. Leave existing tickets unchanged.
+Create the approved tickets using the operations in `tracker.md`, or as local markdown files described in step 1 if there is no `tracker.md`, in dependency order so each ticket can reference the real identifiers of its blockers. Record blockers in the tracker's dependency format and set each ticket to the `ready` status. Leave existing tickets unchanged.
 
 As soon as each ticket is created, add its identifier, title, and requirements to a `## Tickets` section in `requirements.md`, so a failure part-way leaves an accurate record. If a tracker call fails, stop, tell the user which tickets were created and which were not, and continue only when they say so.
 
