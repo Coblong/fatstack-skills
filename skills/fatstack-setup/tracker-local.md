@@ -4,7 +4,7 @@ Tickets for this project are markdown files in this repository.
 
 ## Operations
 
-- **Create a ticket**: write `docs/fatstack/features/<feature-slug>/tickets/<NN>-<slug>.md`, numbered from `01` in dependency order. One ticket per file.
+- **Create a ticket**: write `docs/fatstack/features/<feature-slug>/tickets/<NN>-<slug>.md`, numbered in dependency order after the highest existing number in that folder (from `01` if it is empty). One ticket per file.
 - **Read a ticket**: read the file. Users usually refer to a ticket by path or by feature and number.
 - **List tickets**: list the files in `docs/fatstack/features/*/tickets/`.
 - **Comment**: append to a `## Comments` section at the end of the file.
