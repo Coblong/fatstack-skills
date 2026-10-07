@@ -34,5 +34,6 @@ Ask: "What is the public interface here, and which seams should we test?" Prefer
 1. **Red.** Write one test at an agreed seam for the next small piece of behaviour. Run it and watch it fail for the reason you expect.
 2. **Green.** Write only enough code to make that test pass. Leave out anything a future test might need. Run the test, then the related tests, and confirm they pass.
 3. **Repeat** with the next slice until the behaviour is complete.
+4. **Check everything.** Run the full test suite and the project's other checks, such as linting and type checks. The work is complete only when they all pass; if something unrelated was already failing, tell the user rather than fixing it silently.
 
 Keep to one seam, one test, and one minimal change per cycle. Leave refactoring out of the loop: it belongs to review (`fatstack-review`), once the behaviour is in place and covered.
