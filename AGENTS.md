@@ -58,6 +58,15 @@ docs/fatstack/
 
 `fatstack-setup` adds a short `## Fatstack` section to the project's existing `AGENTS.md` or `CLAUDE.md` pointing at these files, so any agent can find them.
 
+## Session first, files second
+
+Users often run the skills one after another in a single session, so the conversation holds context the files may not.
+
+- Treat the current conversation as the primary source. Use everything relevant already said.
+- Read the saved files too when they exist. They fill gaps, and in a new session they carry the work forward.
+- When the conversation and a file disagree, show the difference and ask the user which is right before writing. The conversation is usually newer.
+- Write files so the work survives the session; they record the conversation, never replace it.
+
 ## Skill authoring
 
 - Put each skill in `skills/<skill-name>/SKILL.md`.
@@ -66,7 +75,7 @@ docs/fatstack/
 - For skills that should only run when the user asks, such as setup and skills with external side effects, set `disable-model-invocation: true` in the frontmatter for Claude Code and add `agents/openai.yaml` with `policy.allow_implicit_invocation: false` for Codex.
 - Keep instructions focused on decisions and procedures that improve the task. Avoid generic advice and repeated policies.
 - Keep skills usable independently. State required tools and dependencies instead of assuming they exist.
-- Read and write the shared project files above rather than relying on earlier conversation, so a skill can run in a new session.
+- Follow [Session first, files second](#session-first-files-second): build on the current conversation, and read and write the shared project files so a skill also works in a new session.
 - Link supporting references from the instructions and explain when to read them.
 - Add scripts only for concrete automation needs and validate their behaviour.
 - Preserve user intent, project conventions, and existing authorization. A skill must not grant itself permission for external actions.
