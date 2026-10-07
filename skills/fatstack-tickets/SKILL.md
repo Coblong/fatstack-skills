@@ -11,7 +11,7 @@ Slice the work into tickets that each deliver something demonstrable, agree them
 ## 1. Gather the sources
 
 - Start with the current conversation, then read `docs/fatstack/features/<feature-slug>/requirements.md` to fill gaps. In a new session the requirements document is the main source. Where they disagree, ask which is right. If there are no requirements to work from, suggest `fatstack-requirements` first.
-- If `requirements.md` already has a `## Tickets` section, those tickets exist: slice only the work they do not cover, and update that section rather than replacing it.
+- If `requirements.md` already has a `## Tickets` section, those tickets exist. Read them and compare what they deliver with the current requirements; point out any requirement that has changed since its ticket was written. Slice only the work they do not cover, and update that section rather than replacing it.
 - Read `docs/fatstack/tracker.md`. If it does not exist, offer to run `fatstack-setup`, or continue with local markdown tickets: one file per ticket at `docs/fatstack/features/<feature-slug>/tickets/<NN>-<slug>.md`, numbered in dependency order after the highest existing number in that folder (from `01` if it is empty), with `Status:` and `Blocked by:` lines at the top.
 - Read the glossary, the decision records, and the code the work touches. Look for prefactoring that would make the change easier.
 
@@ -22,9 +22,9 @@ Each ticket is a **tracer bullet**: a thin slice through every layer it needs (d
 - Put any prefactoring in its own ticket first.
 - Size each ticket so one agent can finish it in a single fresh session.
 - Give each ticket its **blockers**: the tickets that must be done before it can start. A ticket with no blockers can start at once.
-- Link each ticket to the requirements it delivers (`R1`, `R2`, ...).
+- Link each ticket to the requirements it delivers (`R1`, `R2`, ...), and carry the constraints that apply to it.
 
-The breakdown is complete when every requirement that is not withdrawn is delivered by at least one ticket, or is explicitly left for later with the user's agreement.
+The breakdown is complete when every requirement that is not withdrawn is delivered by at least one ticket, and every constraint is carried by the tickets it applies to, or each is explicitly left for later with the user's agreement.
 
 ## 3. Agree the breakdown
 
@@ -32,10 +32,10 @@ Present the tickets as a numbered list, each showing:
 
 - **Title**
 - **Delivers**: the behaviour that works once it is done
-- **Requirements**: the `R` numbers it covers
+- **Requirements**: the `R` numbers it covers, with their status (confirmed or assumed), and the constraints it carries
 - **Blocked by**: ticket numbers, or none
 
-Then ask whether the slices are the right size, whether the blockers are right, and whether any tickets should be merged or split. Revise until the user approves. Create nothing until they do.
+Before asking for approval, list the assumed requirements and open questions the tickets depend on, so the user can confirm them or accept the risk. Then ask whether the slices are the right size, whether the blockers are right, and whether any tickets should be merged or split. Revise until the user approves. Create nothing until they do.
 
 ## 4. Create the tickets
 
@@ -56,7 +56,9 @@ Use this body for each ticket:
 
 ## Requirements
 
-<R numbers>, from [<feature> requirements](<link or path to requirements.md>)
+<R numbers with status, e.g. R1 (confirmed), R3 (assumed)>, from [<feature> requirements](<link or path to requirements.md>)
+
+Constraints: <constraints this ticket must respect, or "none">
 
 ## Blocked by
 
