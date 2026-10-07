@@ -20,7 +20,7 @@ Skills are in early development. Planned skills, in build order:
 | `fatstack-context` | Maintain the project's glossary and decision records. | Draft |
 | `fatstack-challenge` | Interview you about a feature to draw out constraints, edge cases, and open questions. | Draft |
 | `fatstack-requirements` | Turn a challenge into an AI-friendly requirements document. | Planned |
-| `fatstack-tickets` | Break requirements into demonstrable tickets, agree them with you, then create them in your tracker. | Planned |
+| `fatstack-tickets` | Break requirements into demonstrable tickets, agree them with you, then create them in your tracker. | Draft |
 | `fatstack-tdd` | Build behaviour test-first. | Planned |
 | `fatstack-implement` | Implement a ticket test-first, managing ticket transitions and the pull request. | Planned |
 | `fatstack-review` | Review work against its ticket, requirements, and project standards. | Planned |

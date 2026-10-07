@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fatstack Tickets"
+  short_description: "Slice requirements into tickets and create them in the tracker"
+policy:
+  allow_implicit_invocation: false
