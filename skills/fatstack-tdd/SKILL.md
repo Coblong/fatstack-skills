@@ -7,7 +7,7 @@ description: Build behaviour test-first in red-green cycles, one vertical slice 
 
 Work in a red → green loop: write one failing test, then the least code that makes it pass, then the next test. The rules below apply on every cycle, so keep them in mind throughout, not just at the start.
 
-Before writing tests, take the behaviour, domain terms, and decisions from the current conversation first, then read the glossary and decision records (see the `## Fatstack` section in `AGENTS.md` or `CLAUDE.md`) to fill gaps. Test names use the project's domain terms. Where the conversation and a saved file disagree, ask the user which is right before writing a test that depends on it.
+Before writing tests, take the behaviour, domain terms, and decisions from the current conversation first. If the work is for a ticket, read the ticket and its linked requirements document for acceptance criteria and constraints. Then read the glossary and decision records (see the `## Fatstack` section in `AGENTS.md` or `CLAUDE.md`) to fill gaps. Test names use the project's domain terms. Where the conversation and a saved file disagree, ask the user which is right before writing a test that depends on it.
 
 ## Good tests
 
