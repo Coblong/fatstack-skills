@@ -10,7 +10,7 @@ Slice the work into tickets that each deliver something demonstrable, agree them
 
 ## 1. Gather the sources
 
-- Start with the current conversation, then read `docs/fatstack/features/<feature-slug>/requirements.md` to fill gaps. In a new session the requirements document is the main source. Where they disagree, ask which is right. If there are no requirements to work from, suggest `fatstack-requirements` first.
+- Start with the current conversation, then read `docs/fatstack/features/<feature-slug>/requirements.md` to fill gaps. In a new session the requirements document is the main source. Where they disagree, ask which is right. Tickets link back to `requirements.md`, so it must exist before any tickets are created: if it does not, run `fatstack-requirements` first, which can build it from the conversation.
 - If `requirements.md` already has a `## Tickets` section, those tickets exist. Read them and compare what they deliver with the current requirements; point out any requirement that has changed since its ticket was written. Slice only the work they do not cover, and update that section rather than replacing it.
 - Read `docs/fatstack/tracker.md`. If it does not exist, offer to run `fatstack-setup`, or continue with local markdown tickets: one file per ticket at `docs/fatstack/features/<feature-slug>/tickets/<NN>-<slug>.md`, numbered in dependency order after the highest existing number in that folder (from `01` if it is empty), with `Status:` and `Blocked by:` lines at the top.
 - Read the glossary, the decision records, and the code the work touches. Look for prefactoring that would make the change easier.
