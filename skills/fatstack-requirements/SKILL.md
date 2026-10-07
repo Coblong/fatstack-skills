@@ -1,6 +1,6 @@
 ---
 name: fatstack-requirements
-description: Turn a challenge record into a requirements document of user stories, requirements, constraints, and open questions that agents can build from. Use after fatstack-challenge, or when the user asks to write up requirements for a feature.
+description: Turn a challenge, from this session or a saved challenge record, into a requirements document of user stories, requirements, constraints, and open questions that agents can build from. Use after fatstack-challenge, or when the user asks to write up requirements for a feature.
 ---
 
 # Fatstack Requirements
@@ -9,7 +9,10 @@ Synthesise what is already known into a requirements document. This is a synthes
 
 ## 1. Gather the sources
 
-- Find the feature's challenge record at `docs/fatstack/features/<feature-slug>/challenge.md`. If the slug is unclear, list the feature folders and ask. If there is no record, work from the current conversation; if that is thin too, suggest running `fatstack-challenge` first.
+- Start with the current conversation: a challenge or discussion earlier in this session is the freshest source, including anything said after the challenge record was written.
+- Read the feature's challenge record at `docs/fatstack/features/<feature-slug>/challenge.md` to fill gaps. In a new session it is the main source. If the slug is unclear, list the feature folders and ask.
+- Where the conversation and the record disagree, show the difference and ask which is right.
+- If neither gives enough to work from, suggest running `fatstack-challenge` first.
 - If `requirements.md` already exists for the feature, update it rather than starting again.
 - Read the glossary and decision records (see the `## Fatstack` section in `AGENTS.md` or `CLAUDE.md`) and the parts of the code the feature touches.
 
@@ -17,9 +20,9 @@ Synthesise what is already known into a requirements document. This is a synthes
 
 Write the document using the template below. Use glossary terms throughout. Describe behaviour, not code: leave out file paths and code, which go stale.
 
-Carry each point's status across from the challenge record. A requirement the user confirmed is `confirmed`; anything you inferred or proposed is `assumed`. Anything unknown goes under open questions.
+Carry each point's status across from the conversation and the challenge record. A requirement the user confirmed is `confirmed`; anything you inferred or proposed is `assumed`. Anything unknown goes under open questions.
 
-The draft is complete when every confirmed point, assumption, and edge case in the challenge record appears in it, either as a requirement, constraint, or open question, or under out of scope.
+The draft is complete when every confirmed point, assumption, and edge case from the conversation and the challenge record appears in it, either as a requirement, constraint, or open question, or under out of scope.
 
 ## 3. Review, then write
 
