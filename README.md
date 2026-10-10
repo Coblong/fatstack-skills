@@ -22,14 +22,14 @@ Skills are in early development. Planned skills, in build order:
 | `fatstack-requirements` | Turn a challenge into an AI-friendly requirements document. | Draft |
 | `fatstack-tickets` | Break requirements into demonstrable tickets, agree them with you, then create them in your tracker. | Draft |
 | `fatstack-tdd` | Build behaviour test-first, one red-green slice at a time. | Draft |
-| `fatstack-implement` | Implement a ticket test-first, managing ticket transitions and the pull request. | Planned |
+| `fatstack-implement` | Implement a ticket test-first, managing ticket transitions and the pull request. | Draft |
 | `fatstack-review` | Review work against its ticket, requirements, and project standards. | Planned |
 
 Supported trackers are planned to include GitHub, Jira, and Linear, with local markdown files as a fallback. Generated outputs must remain reviewable and editable, with assumptions and open questions made explicit. Skills ask before creating tickets, changing ticket status, or opening pull requests.
 
 ## Installation
 
-Once skills are available, install them using the NPM-distributed [skills CLI](https://github.com/vercel-labs/skills):
+Install the draft skills using the NPM-distributed [skills CLI](https://github.com/vercel-labs/skills):
 
 ```bash
 npx skills add Coblong/fatstack-skills
@@ -41,9 +41,13 @@ For Codex specifically:
 npx skills add Coblong/fatstack-skills --agent codex
 ```
 
-Add `-g` to install globally. The default installation scope is the current project. These commands will not install useful skills until this repository contains them.
+Add `-g` to install globally. The default installation scope is the current project.
 
 The repository is the distribution source. It does not currently publish its own NPM package or installer.
+
+### Implement a ticket
+
+Invoke `fatstack-implement` explicitly with a ticket reference, for example `$fatstack-implement implement #6` in Codex or `/fatstack-implement implement #6` in Claude Code. Install `fatstack-tdd` alongside it. The skill reads the ticket, linked requirements, `docs/fatstack/tracker.md`, and the project's check instructions before planning. It uses test-first slices, requires the full checks to pass, and prepares a linked ready PR with authorization for status changes and publishing. Delegated runs return pending approvals to their coordinator.
 
 ## Repository structure
 
