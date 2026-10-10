@@ -16,11 +16,13 @@ Resolve the ticket reference in the project's tracker and state its identifier a
 
 If tracker configuration is absent, offer `fatstack-setup` or use an existing local markdown ticket supplied by the user. For local tickets, update their `Status:` line only with authorization. Resolve the repository's branch and PR conventions before publishing. Ask for missing ticket or requirements content rather than inventing it. If a blocker is unfinished or the ticket is not ready, report the actual state and ask how to proceed. On a resumed run, inspect the existing branch, PR, and status first so completed steps are not repeated.
 
-Before writing code, identify the acceptance criteria, the next vertical slice, the agreed test seams, and all required checks from `AGENTS.md` / `CLAUDE.md`, following any check-document pointers there. If no checks are documented, ask the user which checks to run. Do not silently substitute familiar lint, test, build, or smoke commands. Record this check list for the final report.
+Before writing code, identify the acceptance criteria, the next vertical slice, the agreed test seams, and all required checks from `AGENTS.md` / `CLAUDE.md`, following any check-document pointers there. Record an executable command for each required check, including the full test suite. If no checks are documented, or any required check lacks a documented command, ask the user for the missing commands before implementing. Do not silently substitute familiar lint, test, build, or smoke commands. Record this check list for the final report.
 
 ## 2. Start the ticket
 
-Present the intended ready → in progress transition and ask before changing status unless the user already explicitly authorized that transition. Apply it through the operations in `tracker.md` and verify the result. Use the configured base branch and branch naming convention. Preserve unrelated changes; reuse the ticket's branch on a resumed run, or create an isolated branch for this ticket. Report a transition failure before proceeding with any dependent tracker action.
+Before changing status or editing project files, enter the ticket's branch using the configured base branch and naming convention. Reuse it on a resumed run, or create it for new work. Preserve unrelated work in its original checkout; use a separate worktree when switching would carry unrelated edits or overwrite existing work. Verify the active branch and working tree before proceeding.
+
+Present the intended ready → in progress transition and ask before changing status unless the user already explicitly authorized that transition. Apply it through the operations in `tracker.md` and verify the result. For a local markdown tracker, edit the ticket's `Status:` line only in the isolated ticket checkout. Report a transition failure before proceeding with any dependent tracker action.
 
 Authorization for implementation does not by itself authorize status changes, commits, pushes, or a PR. Track which actions the user has authorized and ask only for those still missing, when their concrete result is ready for review.
 
