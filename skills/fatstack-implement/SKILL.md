@@ -28,11 +28,13 @@ Present the intended ready → in progress transition and ask before changing st
 
 Authorization for implementation does not by itself authorize status changes, commits, pushes, or a PR. Track which actions the user has authorized and ask only for those still missing, when their concrete result is ready for review.
 
-## 3. Implement test-first
+## 3. Implement the ticket
 
 Use `fatstack-tdd` for every behaviour slice. Confirm test seams through that skill unless the ticket, requirements, or conversation already agreed them. Write one test, observe it fail for the intended reason, then implement enough to pass and run the related tests. Repeat until every acceptance criterion is satisfied. Keep requirement and decision links intact and carry unresolved questions forward instead of choosing answers silently.
 
-If the TDD instructions or necessary tools are unavailable, report the missing dependency and pause the affected work. Keep refactoring in the review workflow described by `fatstack-tdd`.
+For a standalone prefactoring ticket created to unblock later behaviour tickets, use a behaviour-preserving path instead of requiring a failing test for a new behaviour. Confirm the ticket's scope and agreed seams, then run existing tests at those seams before changing the implementation. If coverage is missing, add characterization tests for the existing behaviour and confirm they pass before prefactoring. Make small structural changes, rerun those tests after each change, and verify the ticket's acceptance criteria and full project checks in step 4. If a baseline test fails, resolve or report that failure before changing structure. Keep any new behaviour out of this ticket; use `fatstack-tdd` for a separately agreed behaviour change.
+
+If the TDD instructions or necessary tools are unavailable, report the missing dependency and pause the affected work. Defer optional refactoring during behaviour implementation to the review workflow described by `fatstack-tdd`; explicit prefactoring tickets follow the path above.
 
 ## 4. Verify the complete change
 
