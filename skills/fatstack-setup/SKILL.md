@@ -32,11 +32,13 @@ If the chosen tracker has no available tool, say so and offer local markdown unt
 
 For any external tracker, ask for its names for the statuses ready, in progress, in review, and done. Propose pull request conventions from what the repository already does, defaulting to branches named `<ticket-id>-<slug>` off the default branch.
 
+Record milestone scope and operations too. Use feature-scoped names `<feature-slug> M<N>: <name>` and keep native tracker IDs separate from phase numbers. GitHub uses repository milestones; Linear needs a selected project, not just a team. For Jira, propose fix versions and confirm that they fit the project's release conventions; if the user prefers epics, record the project's actual parent/epic assignment field and list query instead. Check that the configured tools support milestone creation, assignment, and listing; record unsupported operations and ask for an available tool or agreed fallback. Existing tracker configurations need their Milestones section reviewed and added before milestone writes, preserving other configuration.
+
 ## 3. Check the connection
 
 For an external tracker, make one read-only call, such as viewing the project or listing a few open tickets. If the call fails, report the error and let the user fix access or choose local markdown.
 
-Do not create or change anything in the tracker, with one exception: if statuses are tracked with labels that do not exist yet (for example GitHub's `ready`, `in-progress`, and `in-review`), list the missing labels and create them only if the user agrees.
+Do not create or change anything in the tracker, with one exception: if statuses are tracked with labels that do not exist yet (for example GitHub's `ready`, `in-progress`, and `in-review`), list the missing labels and create them only if the user agrees. Milestone capability checks are read-only; setup records the operations without creating milestones or projects.
 
 ## 4. Confirm, then write
 
@@ -57,4 +59,4 @@ Use the project's existing glossary and decision record locations if there are a
 
 ## 5. Finish
 
-Tell the user what was written and that they can edit `docs/fatstack/tracker.md` directly. Re-running setup is only needed to switch tracker.
+Tell the user what was written and that they can edit `docs/fatstack/tracker.md` directly. Re-run setup to switch tracker or add missing milestone operations.

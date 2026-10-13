@@ -20,7 +20,7 @@ Skills are in early development. Planned skills, in build order:
 | `fatstack-context` | Maintain the project's glossary and decision records. | Draft |
 | `fatstack-challenge` | Interview you about a feature to draw out constraints, edge cases, and open questions. | Draft |
 | `fatstack-requirements` | Turn a challenge into an AI-friendly requirements document. | Draft |
-| `fatstack-tickets` | Break requirements into demonstrable tickets, agree them with you, then create them in your tracker. | Draft |
+| `fatstack-tickets` | Break requirements into demonstrable tickets and optional milestones, agree them with you, then create them in your tracker. | Draft |
 | `fatstack-tdd` | Build behaviour test-first, one red-green slice at a time. | Draft |
 | `fatstack-implement` | Implement a ticket test-first, managing ticket transitions and the pull request. | Draft |
 | `fatstack-review` | Review work against its ticket, requirements, and project standards. | Draft |
@@ -45,6 +45,12 @@ npx skills add Coblong/fatstack-skills --agent codex
 Add `-g` to install globally. The default installation scope is the current project.
 
 The repository is the distribution source. It does not currently publish its own NPM package or installer.
+
+### Plan milestones
+
+`fatstack-tickets` groups larger features into ordered milestones with names and demonstrable goals. You can move tickets or merge, split, rename, and reorder phases before approval; dependencies are checked again after changes. Small features can use one milestone or none. Re-runs preserve existing assignments and propose moves for approval.
+
+New milestone names are scoped to a feature, such as `checkout M2: Payment`. The phase number is separate from the tracker's native ID. Plans and ticket assignments are recorded in `requirements.md` and the tracker: GitHub milestones, confirmed Jira fix versions or a project-specific epic configuration, Linear project milestones, or local `Milestone:` fields. Existing tracker configurations need milestone operations added through setup before milestone writes.
 
 ### Implement a ticket
 
