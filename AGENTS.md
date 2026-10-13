@@ -18,6 +18,7 @@ Use Matt Pocock's skills as a capability reference. Author original instructions
 - A **challenge** is the guided interview that clarifies an idea, drawing out constraints, edge cases, and open questions. The Fat Stack application calls this a discovery conversation. It produces a **challenge record**.
 - A **requirements document** records the work to be done: requirements, constraints, user stories, decisions, and open questions. It is the source of truth that tickets link back to. The Fat Stack application calls this a specification.
 - A **ticket** is a delivery-ready, demonstrable unit of work derived from a requirements document, with explicit dependencies on other tickets.
+- A **milestone** is an ordered phase of a feature, grouping tickets around a goal that can be reviewed and shipped on its own. Phase numbers are scoped to a feature; native tracker IDs are recorded separately.
 - The **tracker** is where tickets live: an external tool such as GitHub, Jira, or Linear, or local markdown files.
 - **Export/sync** is a user-approved transfer of tickets to an external tracker.
 - The **glossary** defines the project's domain terms. A **decision record** captures a hard-to-reverse decision and why it was made.
@@ -34,7 +35,7 @@ All skills use the `fatstack-` prefix.
 | `fatstack-context` | Maintain the glossary and decision records. Used directly and by other skills. |
 | `fatstack-challenge` | Interview the user about a feature until there is a shared understanding. |
 | `fatstack-requirements` | Turn a challenge record into a requirements document. |
-| `fatstack-tickets` | Break requirements into demonstrable tickets, agree them with the user, then create them in the tracker. |
+| `fatstack-tickets` | Break requirements into demonstrable tickets and optional milestones, agree the plan, then create it in the tracker. |
 | `fatstack-tdd` | Build behaviour test-first in red-green cycles at agreed seams. Refactoring happens in review. |
 | `fatstack-implement` | Implement a ticket using `fatstack-tdd`, managing ticket transitions and the pull request. |
 | `fatstack-review` | Review work against its ticket, requirements, and the project's standards. |
