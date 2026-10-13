@@ -25,6 +25,7 @@ Skills are in early development. Planned skills, in build order:
 | `fatstack-implement` | Implement a ticket test-first, managing ticket transitions and the pull request. | Draft |
 | `fatstack-review` | Review work against its ticket, requirements, and project standards. | Draft |
 | `fatstack-vibe` | Make small changes with focused checks, then run full checks on wrap-up. | Draft |
+| `fatstack-chief-of-staff` | Coordinate a ticket batch or milestone through implementation workers and review each result. | Draft |
 
 Supported trackers are planned to include GitHub, Jira, and Linear, with local markdown files as a fallback. Generated outputs must remain reviewable and editable, with assumptions and open questions made explicit. Skills ask before creating tickets, changing ticket status, or opening pull requests.
 
@@ -65,6 +66,12 @@ Use `fatstack-review` with a ticket and PR, branch, or local change reference. I
 Invoke `$fatstack-vibe` in Codex or `/fatstack-vibe` in Claude Code to start a "let's vibe" session. Install `fatstack-implement` alongside it for the shared verification instructions. Small requested changes use focused checks where useful, while repository rules and authorization still apply. Say "let's wrap it up", "wrap it up", or "back to normal" to exit and run the full project checks before the work is called complete.
 
 In a long session, summarization may lose the mode instructions. If wrap-up does not trigger the checks, invoke the skill again or explicitly ask for the full checks.
+
+### Coordinate a batch
+
+Invoke `$fatstack-chief-of-staff` in Codex or `/fatstack-chief-of-staff` in Claude Code with a goal, ticket batch, or feature milestone. Install `fatstack-implement`, `fatstack-tdd`, and `fatstack-review` alongside it. The coordinator agrees the batch and dependency order, explains each worker's model and effort, delegates implementation to isolated background workers, and reviews the results. Tickets wait for verified blockers; an open PR does not count as done. Status changes and publishing retain the implementation workflow's approval requirements.
+
+This skill takes capability inspiration from [Matt Pocock's chief-of-staff](https://github.com/mattpocock/skills/blob/main/skills/in-progress/chief-of-staff/SKILL.md). It adds ticket and milestone delivery, portable model tiers, and review against project requirements. Its instructions are independently authored. It requires a harness with background sub-agents; limited model or effort controls are disclosed before dispatch and need an agreed fallback.
 
 ## Repository structure
 

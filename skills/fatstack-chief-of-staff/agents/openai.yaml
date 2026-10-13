@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fatstack Chief of Staff"
+  short_description: "Coordinate ticket workers and review their delivery"
+policy:
+  allow_implicit_invocation: false
