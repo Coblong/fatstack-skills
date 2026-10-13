@@ -1,8 +1,12 @@
 # Fatstack Skills
 
-Fat Stack is my name for taking a feature from idea through analysis, design, technical architecture, implementation, quality assurance, deployment, and maintenance in production. To me, ownership of that whole lifecycle is more valuable than the usual frontend-to-backend meaning of "full stack", and it's where this project's name comes from.
+For years engineers have aspired to become Full Stack. A futile ambition for human engineers.
 
-Reusable agent skills for turning product ideas into clear requirements, delivery-ready tickets, and reviewed code.
+Fat Stack refers to the process of taking a feature from idea through analysis, design, technical architecture, implementation, quality assurance, deployment, and maintenance in production. 
+
+This ownership of that whole lifecycle has always been far more valuable than the usual frontend-to-backend meaning of "full stack". Now, with the advent of AI assisted engineering, the full stack belongs to AI. 
+
+Fatstack Skills are reusable agent skills for turning product ideas into clear requirements, delivery-ready tickets, and reviewed code.
 
 The intended workflow is:
 
