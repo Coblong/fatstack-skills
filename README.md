@@ -23,7 +23,7 @@ Skills are in early development. Planned skills, in build order:
 | `fatstack-tickets` | Break requirements into demonstrable tickets, agree them with you, then create them in your tracker. | Draft |
 | `fatstack-tdd` | Build behaviour test-first, one red-green slice at a time. | Draft |
 | `fatstack-implement` | Implement a ticket test-first, managing ticket transitions and the pull request. | Draft |
-| `fatstack-review` | Review work against its ticket, requirements, and project standards. | Planned |
+| `fatstack-review` | Review work against its ticket, requirements, and project standards. | Draft |
 
 Supported trackers are planned to include GitHub, Jira, and Linear, with local markdown files as a fallback. Generated outputs must remain reviewable and editable, with assumptions and open questions made explicit. Skills ask before creating tickets, changing ticket status, or opening pull requests.
 
@@ -48,6 +48,10 @@ The repository is the distribution source. It does not currently publish its own
 ### Implement a ticket
 
 Invoke `fatstack-implement` explicitly with a ticket reference, for example `$fatstack-implement implement #6` in Codex or `/fatstack-implement implement #6` in Claude Code. Install `fatstack-tdd` alongside it. The skill reads the ticket, linked requirements, `docs/fatstack/tracker.md`, and the project's check instructions before planning. It uses test-first slices, requires the full checks to pass, and prepares a linked ready PR with authorization for status changes and publishing. Delegated runs return pending approvals to their coordinator.
+
+### Review a ticket
+
+Use `fatstack-review` with a ticket and PR, branch, or local change reference. It reports requirements and acceptance gaps separately from project standards findings, ranks each finding by severity, and cites the affected files and lines. Missing sources and unverified outcomes remain explicit. Reviews leave files and tracker state unchanged unless you request changes.
 
 ## Repository structure
 
