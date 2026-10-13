@@ -24,6 +24,7 @@ Skills are in early development. Planned skills, in build order:
 | `fatstack-tdd` | Build behaviour test-first, one red-green slice at a time. | Draft |
 | `fatstack-implement` | Implement a ticket test-first, managing ticket transitions and the pull request. | Draft |
 | `fatstack-review` | Review work against its ticket, requirements, and project standards. | Draft |
+| `fatstack-vibe` | Make small changes with focused checks, then run full checks on wrap-up. | Draft |
 
 Supported trackers are planned to include GitHub, Jira, and Linear, with local markdown files as a fallback. Generated outputs must remain reviewable and editable, with assumptions and open questions made explicit. Skills ask before creating tickets, changing ticket status, or opening pull requests.
 
@@ -52,6 +53,12 @@ Invoke `fatstack-implement` explicitly with a ticket reference, for example `$fa
 ### Review a ticket
 
 Use `fatstack-review` with a ticket and PR, branch, or local change reference. It reports requirements and acceptance gaps separately from project standards findings, ranks each finding by severity, and cites the affected files and lines. Missing sources and unverified outcomes remain explicit. Reviews leave files and tracker state unchanged unless you request changes.
+
+### Vibe mode
+
+Invoke `$fatstack-vibe` in Codex or `/fatstack-vibe` in Claude Code to start a "let's vibe" session. Install `fatstack-implement` alongside it for the shared verification instructions. Small requested changes use focused checks where useful, while repository rules and authorization still apply. Say "let's wrap it up", "wrap it up", or "back to normal" to exit and run the full project checks before the work is called complete.
+
+In a long session, summarization may lose the mode instructions. If wrap-up does not trigger the checks, invoke the skill again or explicitly ask for the full checks.
 
 ## Repository structure
 

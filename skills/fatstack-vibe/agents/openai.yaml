@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fatstack Vibe"
+  short_description: "Make small changes, then run full checks on wrap-up"
+policy:
+  allow_implicit_invocation: false
