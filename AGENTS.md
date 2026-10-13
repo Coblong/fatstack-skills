@@ -38,6 +38,7 @@ All skills use the `fatstack-` prefix.
 | `fatstack-tdd` | Build behaviour test-first in red-green cycles at agreed seams. Refactoring happens in review. |
 | `fatstack-implement` | Implement a ticket using `fatstack-tdd`, managing ticket transitions and the pull request. |
 | `fatstack-review` | Review work against its ticket, requirements, and the project's standards. |
+| `fatstack-vibe` | Make small changes with focused checks, then run full project checks on wrap-up. |
 
 Skills that need a tracker read the configuration written by `fatstack-setup`. If none exists, they offer to run setup or fall back to local markdown tickets.
 
