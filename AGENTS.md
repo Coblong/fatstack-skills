@@ -36,7 +36,7 @@ All skills use the `fatstack-` prefix.
 | `fatstack-challenge` | Interview the user about a feature until there is a shared understanding. |
 | `fatstack-requirements` | Turn a challenge record into a requirements document. |
 | `fatstack-tickets` | Break requirements into demonstrable tickets and optional milestones, agree the plan, then create it in the tracker. |
-| `fatstack-tdd` | Build behaviour test-first in red-green cycles at agreed seams. Refactoring happens in review. |
+| `fatstack-tdd` | Build behaviour test-first in red-green cycles at public test boundaries. Refactoring happens in review. |
 | `fatstack-implement` | Implement a ticket using `fatstack-tdd`, managing ticket transitions and the pull request. |
 | `fatstack-review` | Review work against its ticket, requirements, and the project's standards. |
 | `fatstack-vibe` | Make small changes with focused checks, then run full project checks on wrap-up. |
@@ -82,7 +82,7 @@ Users often run the skills one after another in a single session, so the convers
 - Link supporting references from the instructions and explain when to read them.
 - Add scripts only for concrete automation needs and validate their behaviour.
 - Preserve user intent, project conventions, and existing authorization. A skill must not grant itself permission for external actions.
-- Require explicit user intent before creating, modifying, or exporting tickets, changing ticket status, or opening pull requests.
+- Require explicit user intent before creating, modifying, or exporting tickets or opening pull requests. A request to implement a ticket or batch supplies that intent for its routine workflow status transitions; test boundaries are implementation decisions. Neither needs a separate approval prompt. Ask when intended behaviour or scope is unclear.
 - Never include credentials, private conversations, or private tracker data in examples or fixtures.
 
 ## Validation and documentation

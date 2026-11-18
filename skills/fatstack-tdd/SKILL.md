@@ -1,6 +1,6 @@
 ---
 name: fatstack-tdd
-description: Build behaviour test-first in red-green cycles, one vertical slice at a time, at agreed seams. Use when the user wants to build a feature or fix a bug test-first, mentions red-green or TDD, or when fatstack-implement works on a ticket.
+description: Build behaviour test-first in red-green cycles, one vertical slice at a time, at public test boundaries. Use when the user wants to build a feature or fix a bug test-first, mentions red-green or TDD, or when fatstack-implement works on a ticket.
 ---
 
 # Fatstack TDD
@@ -19,9 +19,9 @@ Read [tests.md](tests.md) for examples of good and bad tests, and [mocking.md](m
 
 A **seam** is the public boundary a test works through: the place where behaviour is observable without reaching inside. Tests live at seams.
 
-Agree the seams before writing the first test. List the seams you intend to test and confirm them with the user, unless the ticket, requirements, or the conversation already agreed them. Write tests only at agreed seams. Agreeing them up front puts the testing effort on the important paths and the complex logic rather than on every detail.
+Choose the seams from the ticket, requirements, existing public interfaces, and project testing conventions. Respect boundaries the user has already specified. State the intended seams briefly and proceed without waiting for approval. Focus testing on important paths and complex logic rather than every implementation detail.
 
-Ask: "What is the public interface here, and which seams should we test?" Prefer the highest seam that exercises the behaviour, and as few seams as possible.
+Prefer the highest seam that exercises the behaviour, and as few seams as possible. Ask the user only when missing or conflicting information about intended behaviour or scope prevents a sound choice; a routine test-boundary decision is the agent's responsibility.
 
 ## Traps
 
@@ -31,7 +31,7 @@ Ask: "What is the public interface here, and which seams should we test?" Prefer
 
 ## The loop
 
-1. **Red.** Write one test at an agreed seam for the next small piece of behaviour. Run it and watch it fail for the reason you expect.
+1. **Red.** Write one test at the selected seam for the next small piece of behaviour. Run it and watch it fail for the reason you expect.
 2. **Green.** Write only enough code to make that test pass. Leave out anything a future test might need. Run the test, then the related tests, and confirm they pass.
 3. **Repeat** with the next slice until the behaviour is complete.
 4. **Check everything.** Run the full test suite and the project's other checks, such as linting and type checks. The work is complete only when they all pass; if something unrelated was already failing, tell the user rather than fixing it silently.
