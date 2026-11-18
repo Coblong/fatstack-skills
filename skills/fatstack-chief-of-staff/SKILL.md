@@ -20,7 +20,7 @@ Build the dependency order from all selected tickets and their blockers, includi
 
 Before feature work, inspect for concrete environment impediments: missing checks or standards, inaccessible test data or logs, ambiguous APIs, or unavailable browser tooling. Suggest improvements with their purpose and priority. Delegate approved prerequisite changes before the feature tickets that need them. Fix deviations through the established process rather than bypassing checks or inventing local exceptions; defer unrelated improvements for the user's decision.
 
-Present the proposed batch and order, parallel candidates, blockers, any prerequisite improvements, and model/effort choices. Ask the user to agree the batch before dispatch unless the conversation already explicitly approved it. Agreement to a batch does not alone authorize ticket transitions, commits, pushes, PRs, or merges. Carry forward existing explicit authorization for specific actions; collect missing approvals through `fatstack-implement` when the action is concrete and reviewable.
+Present the proposed batch and order, parallel candidates, blockers, any prerequisite improvements, and model/effort choices. Ask the user to agree the batch before dispatch unless the conversation already explicitly approved it. A requested implementation batch covers routine ticket transitions and agent-selected test seams through `fatstack-implement`; do not request separate approval for either. Commits, pushes, PRs, and merges follow the user's publishing instructions and project rules. Carry forward existing authorization and collect only genuinely missing publishing approvals when the action is concrete and reviewable.
 
 ## 2. Choose the worker settings
 
@@ -55,7 +55,7 @@ Return branch, PR or pending action, verified status, check results, and blocker
 
 Use background execution and sparse follow-ups so the user can continue discussing the goal. Maintain a compact conversation ledger per ticket: worker identity, checkout/branch, chosen settings and reason, dependencies, latest verified state, approvals, PR link, check results, and open questions. Use completion notifications or bounded waits rather than repeatedly asking for unchanged progress. Persist this ledger in session summaries; on resumption, verify worker, branch, PR, and tracker state before redispatching.
 
-Workers return approval or missing-information requests to the coordinator when they cannot ask directly. Show the user the concrete pending action and the applicable skill rule, then send only their actual authorization back to the worker. A coordinator's dispatch is not user approval. Continue independent authorized work while an affected ticket waits.
+Workers return missing-information or publishing-approval requests to the coordinator when they cannot ask directly. Routine status updates and test-seam choices are already covered by the requested implementation; direct the worker to proceed rather than forwarding a redundant approval request. For genuinely missing information or publishing approval, show the concrete pending action and applicable rule to the user, then send their answer back to the worker. Continue independent work while an affected ticket waits.
 
 ## 4. Review and report
 
