@@ -20,7 +20,7 @@ Build the dependency order from all selected tickets and their blockers, includi
 
 Before feature work, inspect for concrete environment impediments: missing checks or standards, inaccessible test data or logs, ambiguous APIs, or unavailable browser tooling. Suggest improvements with their purpose and priority. Delegate approved prerequisite changes before the feature tickets that need them. Fix deviations through the established process rather than bypassing checks or inventing local exceptions; defer unrelated improvements for the user's decision.
 
-Present the proposed batch and order, parallel candidates, blockers, any prerequisite improvements, and model/effort choices. Ask the user to agree the batch before dispatch unless the conversation already explicitly approved it. A requested implementation batch covers routine ticket transitions and agent-selected test seams through `fatstack-implement`; do not request separate approval for either. Commits, pushes, PRs, and merges follow the user's publishing instructions and project rules. Carry forward existing authorization and collect only genuinely missing publishing approvals when the action is concrete and reviewable.
+Present the proposed batch and order, parallel candidates, blockers, any prerequisite improvements, and model/effort choices. Ask the user to agree the batch before dispatch unless the conversation already explicitly approved it. A requested implementation batch covers routine ticket transitions, agent-selected test seams, scoped commits, branch pushes, and ready PR creation through `fatstack-implement`; do not request separate approval for those steps. Carry forward explicit user limits such as no publishing. Merges and work outside the agreed batch still require separate user intent; project and tool restrictions remain in force.
 
 ## 2. Choose the worker settings
 
@@ -41,7 +41,7 @@ After a struggling attempt, diagnose what blocked it from the worker's evidence.
 
 Give each ticket one implementation worker running `fatstack-implement`, with its own branch and isolated checkout. Workers prepare their checkouts using project conventions; keep unrelated changes in their original checkout. Dispatch independent tickets in parallel within available slots and tool limits. Serialize tickets sharing a mutable resource, environment, or conflicting files unless safe isolation is established. Do not dispatch dependents merely because their blocker worker has finished its turn.
 
-Keep prompts short and point to authoritative sources. Supply the ticket reference, project/checkout location, tracker configuration path, requirements path or link, relevant glossary/decisions and prior commits, skill path, intended base, model/effort, and the exact user authorization already granted. Include unresolved questions that affect the ticket. Avoid copying full documents into prompts; if a worker cannot access a source, provide a scoped accessible copy with its origin and note the limitation.
+Keep prompts short and point to authoritative sources. Supply the ticket reference, project/checkout location, tracker configuration path, requirements path or link, relevant glossary/decisions and prior commits, skill path, intended base, model/effort, and the user's requested implementation scope and explicit limits. Include unresolved questions that affect the ticket. Avoid copying full documents into prompts; if a worker cannot access a source, provide a scoped accessible copy with its origin and note the limitation.
 
 For example:
 
@@ -49,19 +49,19 @@ For example:
 Implement <ticket reference> in <isolated project checkout> using <fatstack-implement path>.
 Read <tracker path>, <requirements path>, and the project instructions there.
 Base: <verified base revision>. Relevant decisions: <paths>. Prior work: <commit/PR pointers>.
-Settings: <available model and effort>. User-authorized actions: <explicit scope or none>.
+Settings: <available model and effort>. Requested implementation: <scope>. Explicit user limits: <limits or none>.
 Return branch, PR or pending action, verified status, check results, and blockers.
 ```
 
 Use background execution and sparse follow-ups so the user can continue discussing the goal. Maintain a compact conversation ledger per ticket: worker identity, checkout/branch, chosen settings and reason, dependencies, latest verified state, approvals, PR link, check results, and open questions. Use completion notifications or bounded waits rather than repeatedly asking for unchanged progress. Persist this ledger in session summaries; on resumption, verify worker, branch, PR, and tracker state before redispatching.
 
-Workers return missing-information or publishing-approval requests to the coordinator when they cannot ask directly. Routine status updates and test-seam choices are already covered by the requested implementation; direct the worker to proceed rather than forwarding a redundant approval request. For genuinely missing information or publishing approval, show the concrete pending action and applicable rule to the user, then send their answer back to the worker. Continue independent work while an affected ticket waits.
+Workers return missing-information or tool-access blockers to the coordinator when they cannot ask directly. Routine status updates, test-seam choices, scoped commits, branch pushes, and ready PR creation are already covered by the requested implementation; direct the worker to proceed rather than forwarding a redundant approval request. For genuinely missing information or an action outside the agreed scope, show the concrete question or action to the user, then send their answer back to the worker. Continue independent work while an affected ticket waits.
 
 ## 4. Review and report
 
 Review each worker's result with `fatstack-review` against the ticket, requirements, and project standards before presenting it as reviewed delivery. Inspect the pinned diff, acceptance coverage, and actual check evidence rather than relying on a worker's success claim. You may acknowledge receipt or a blocker promptly without implying review is complete.
 
-Send corrections and PR feedback to that ticket's existing worker where the harness permits; delegate all fixes and any rebase requiring conflict resolution. The worker reruns affected checks, and the coordinator reviews the resulting revision again. Follow `fatstack-implement` for PR approvals, ready-state publication, status verification, and replies and resolution of addressed PR comments. Never merge without explicit user authorization. After an authorized merge, verify the tracker status and refresh the intended base before reconsidering blocked tickets.
+Send corrections and PR feedback to that ticket's existing worker where the harness permits; delegate all fixes and any rebase requiring conflict resolution. The worker reruns affected checks, and the coordinator reviews the resulting revision again. Follow `fatstack-implement` for ready-state publication without an approval checkpoint, status verification, and replies and resolution of addressed PR comments. Never merge without explicit user authorization. After an authorized merge, verify the tracker status and refresh the intended base before reconsidering blocked tickets.
 
 Report a short running summary per ticket: settings and reason, reviewed PR or pending action, check results, verified status, and remaining questions. Raise useful environment improvements as evidence emerges. Suggest recurring review or check schedules only when supported and useful to the agreed goal; creating a schedule requires the user's request or approval.
 

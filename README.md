@@ -31,7 +31,7 @@ Fatstack Skills takes inspiration from the capabilities in [Matt Pocock's skills
 | `fatstack-vibe` | Make small changes with focused checks, then run full checks on wrap-up. |
 | `fatstack-chief-of-staff` | Coordinate a ticket batch or milestone through implementation workers and review each result. |
 
-Tracker guides cover GitHub, Jira, and Linear, with local markdown files as a fallback. Generated outputs must remain reviewable and editable, with assumptions and open questions made explicit. Implementing a ticket includes its routine status transitions and agent-selected test boundaries without separate approval. Ticket creation and publishing follow the user's instructions and project rules.
+Tracker guides cover GitHub, Jira, and Linear, with local markdown files as a fallback. Generated outputs must remain reviewable and editable, with assumptions and open questions made explicit. Implementing a ticket includes routine status transitions, agent-selected test boundaries, scoped commits, branch pushes, and a linked ready PR without separate approval. Explicit user limits and project rules still apply. Ticket creation, merges, and deployments require separate user intent.
 
 ## Installation
 
@@ -59,7 +59,7 @@ New milestone names are scoped to a feature, such as `checkout M2: Payment`. The
 
 ### Implement a ticket
 
-Invoke `fatstack-implement` explicitly with a ticket reference, for example `$fatstack-implement implement #6` in Codex or `/fatstack-implement implement #6` in Claude Code. Install `fatstack-tdd` alongside it. The skill reads the ticket, linked requirements, `docs/fatstack/tracker.md`, and the project's check instructions before planning. It updates routine ticket statuses and chooses test boundaries without an approval gate, asking questions when information is missing or conflicting. It uses test-first slices, requires the full checks to pass, and prepares a linked ready PR under the user's publishing instructions. Delegated runs follow the same rules.
+Ask to implement a ticket or invoke `fatstack-implement` explicitly, for example `$fatstack-implement implement #6` in Codex or `/fatstack-implement implement #6` in Claude Code. Automatic selection is enabled for requested implementation tasks. Install `fatstack-tdd` alongside it. The skill reads the ticket, linked requirements, `docs/fatstack/tracker.md`, and project check instructions, then implements test-first, runs full checks, commits, pushes its branch, and creates or updates a linked ready PR without another authorization prompt. It asks when information is missing or conflicting and honors explicit limits such as local-only work. Delegated runs follow the same rules.
 
 ### Review a ticket
 
@@ -73,7 +73,7 @@ In a long session, summarization may lose the mode instructions. If wrap-up does
 
 ### Coordinate a batch
 
-Invoke `$fatstack-chief-of-staff` in Codex or `/fatstack-chief-of-staff` in Claude Code with a goal, ticket batch, or feature milestone. Install `fatstack-implement`, `fatstack-tdd`, and `fatstack-review` alongside it. The coordinator agrees the batch and dependency order, explains each worker's model and effort, delegates implementation to isolated background workers, and reviews the results. Tickets wait for verified blockers; an open PR does not count as done. Workers update routine statuses and choose test boundaries without asking again; publishing follows the implementation workflow's approval requirements.
+Invoke `$fatstack-chief-of-staff` in Codex or `/fatstack-chief-of-staff` in Claude Code with a goal, ticket batch, or feature milestone. Install `fatstack-implement`, `fatstack-tdd`, and `fatstack-review` alongside it. The coordinator agrees the batch and dependency order, explains each worker's model and effort, delegates implementation to isolated background workers, and reviews the results. Tickets wait for verified blockers; an open PR does not count as done. Workers update statuses, select test boundaries, commit, push, and create ready PRs without asking again, while respecting explicit user limits. Merging remains a separate decision.
 
 This skill takes capability inspiration from [Matt Pocock's chief-of-staff](https://github.com/mattpocock/skills/blob/main/skills/in-progress/chief-of-staff/SKILL.md). It adds ticket and milestone delivery, portable model tiers, and review against project requirements. Its instructions are independently authored. It requires a harness with background sub-agents; limited model or effort controls are disclosed before dispatch and need an agreed fallback.
 
