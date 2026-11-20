@@ -96,6 +96,8 @@ In a long session, summarization may lose the mode instructions. If wrap-up does
 
 Invoke `$fatstack-chief-of-staff` in Codex or `/fatstack-chief-of-staff` in Claude Code with a goal, ticket batch, or feature milestone. Install `fatstack-implement`, `fatstack-tdd`, and `fatstack-review` alongside it. The coordinator agrees the batch and dependency order, explains each worker's model and effort, delegates implementation to isolated background workers, and reviews the results. Tickets wait for verified blockers; an open PR does not count as done. Workers update statuses, select test boundaries, commit, push, and create ready PRs without asking again, while respecting explicit user limits. Merging remains a separate decision.
 
+The coordinator's model sets the maximum model cost tier. Workers use the cheapest suitable model at or below that ceiling, and any further delegation or retries stay on the same model or move to a cheaper one. Difficult work never authorizes delegation to a more expensive model.
+
 This skill takes capability inspiration from [Matt Pocock's chief-of-staff](https://github.com/mattpocock/skills/blob/main/skills/in-progress/chief-of-staff/SKILL.md). It adds ticket and milestone delivery, portable model tiers, and review against project requirements. Its instructions are independently authored. It requires a harness with background sub-agents; limited model or effort controls are disclosed before dispatch and need an agreed fallback.
 
 ## Repository structure

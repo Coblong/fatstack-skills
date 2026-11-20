@@ -72,6 +72,7 @@ Users often run the skills one after another in a single session, so the convers
 
 ## Skill authoring
 
+- When asked to change a `fatstack-*` skill, edit its source under `skills/<skill-name>/` in this repository. This applies even when the request names an installed skill or uses `/skill-name` or `$skill-name` invocation syntax. Change an installed copy only when the user explicitly requests it.
 - Put each skill in `skills/<skill-name>/SKILL.md`.
 - Prefix every skill name with `fatstack-`. Use lowercase letters, digits, and hyphens. Match the directory name to the frontmatter name.
 - Include YAML frontmatter with `name` and `description`. Describe the task and when the skill should apply.
