@@ -51,6 +51,27 @@ Add `-g` to install globally. The default installation scope is the current proj
 
 The repository is the distribution source. It does not currently publish its own NPM package or installer.
 
+## How to use
+
+Open your coding agent in the project you want to work on. Start by running `fatstack-setup` once for that project to choose the tracker and record its statuses, milestone operations, and branch and PR conventions. Make sure the project's `AGENTS.md` or `CLAUDE.md` documents the checks an implementation must pass.
+
+Send these prompts one at a time in Codex. In Claude Code, replace the leading `$` with `/`:
+
+```text
+$fatstack-setup Configure Fatstack for this project.
+$fatstack-challenge I want users to invite team members by email.
+$fatstack-requirements Write requirements from our discussion.
+$fatstack-tickets Turn those requirements into tickets and propose milestones if useful.
+$fatstack-implement Implement #123.
+$fatstack-review Review #123 and its pull request.
+```
+
+Replace the idea with your feature and `#123` with a real ticket reference, such as a GitHub issue number, Jira or Linear key, or local ticket path. Answer the challenge questions, review the requirements, and approve the ticket and milestone plan before anything is created in the tracker.
+
+You can continue through the workflow in one chat. The skills save their records under `docs/fatstack/`, so a new chat can resume from the ticket reference and linked requirements. If you already have a clear ticket and requirements, start with `fatstack-implement`. It runs the project's checks, commits and pushes the ticket branch, and opens a ready PR; ask for local-only work if you do not want publishing. Review findings are reported without changing files, and merging remains your decision.
+
+For several tickets or a milestone, use `fatstack-chief-of-staff` as described below. For small edits with full checks deferred until wrap-up, use `fatstack-vibe`.
+
 ### Plan milestones
 
 `fatstack-tickets` groups larger features into ordered milestones with names and demonstrable goals. You can move tickets or merge, split, rename, and reorder phases before approval; dependencies are checked again after changes. Small features can use one milestone or none. Re-runs preserve existing assignments and propose moves for approval.
