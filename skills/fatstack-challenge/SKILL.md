@@ -19,10 +19,10 @@ Question the user about a feature until you both understand the work in the same
 Each round, ask up to five numbered questions. Ask only questions you can ask now: leave questions that depend on an unanswered one for a later round. Give your recommended answer with each. Recommendations are accepted by default when the user replies to the round; the user only needs to answer questions where they want a different answer or more discussion.
 
 ```markdown
-**1. <Short title>**
+🤖 **1. <Short title>**
 <The question, with options if there are any.>
 
-**Recommended:** <your answer and why, in a sentence>
+💡 **<your recommended answer:** <why, in a sentence>
 ```
 
 Tell the user they can reply only with changes and that all other recommendations will be accepted. Wait for a reply before the next round. Apply their answers to the questions they address and mark the remaining recommendations as confirmed by default acceptance. For example, if you ask five questions and the user answers only Q3, accept the recommendations for Q1, Q2, Q4, and Q5. If the user defers a question or expresses uncertainty about it, keep it open. Silence before any reply does not accept a round.
