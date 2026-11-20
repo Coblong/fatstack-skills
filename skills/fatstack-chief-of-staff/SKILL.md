@@ -24,18 +24,20 @@ Present the proposed batch and order, parallel candidates, blockers, any prerequ
 
 ## 2. Choose the worker settings
 
-Use the harness's advertised model and reasoning controls. Map these portable tiers to available models at runtime; never hard-code provider model names or assume that every agent accepts an effort setting.
+Delegation saves cost. The model running this coordinator is the maximum model for the batch: select the cheapest suitable worker model at or below that model's cost tier. Never delegate to a more expensive model, including for reviews, retries, or difficult tickets. Each worker inherits this rule and may delegate only to its own model or a cheaper one, so nested delegation can never raise the ceiling. A task that needs a more expensive model remains blocked for user direction; do not offer an upward delegation override.
+
+Use the harness's advertised model and reasoning controls. Establish the coordinator's actual model and the relative costs of available worker models from reliable runtime information or current pricing before selecting a different model; capability labels alone do not establish cost. If cost ordering is unknown, inherit the coordinator's exact model or use a model verified cheaper; if neither is possible, stop affected dispatch. Map these portable tiers only to eligible models at runtime; never hard-code provider model names or assume that every agent accepts an effort setting.
 
 | Tier | Effort | Suitable work |
 | --- | --- | --- |
 | Small | Low | Mechanical copy, renames, ticket write-ups, or trivial configuration. |
 | Mid | Medium | Default for a well-specified feature or bug in one area, or straightforward review fixes. |
 | Mid | High | Multiple interacting files, tests across layers, or tricky UI state. |
-| Top | High or higher | Authorization, money, migrations, ambiguous requirements, hard bugs, or cross-cutting refactoring. |
+| Highest eligible within the ceiling | High or higher | Authorization, money, migrations, ambiguous requirements, hard bugs, or cross-cutting refactoring. |
 
-Assess each ticket's acceptance criteria, uncertainty, impact, and earlier attempts rather than its title alone. Before dispatch, state the selected tier, actual available model and effort, and a one-line reason so the user can overrule the choice. If the harness only inherits a model or cannot control effort, state the actual setting and the limitation; ask the user to accept that fallback before dispatching affected work. Respect their overrides.
+Assess each ticket's acceptance criteria, uncertainty, impact, and earlier attempts rather than its title alone. A tier unavailable within the ceiling does not authorize a more expensive model. Before dispatch, state the coordinator's model ceiling, selected tier, actual available model and effort, and a one-line reason so the user can choose another eligible setting. If the harness only inherits a model or cannot control effort, state the actual setting and the limitation; ask the user to accept that fallback before dispatching affected work. Apply user choices within the ceiling.
 
-After a struggling attempt, diagnose what blocked it from the worker's evidence. Propose a higher model tier or effort, with the reason and any remaining uncertainty, before retrying. Escalation does not replace missing requirements, permissions, or tools; resolve those separately. Preserve existing work and route the retry to the same worker where supported, or hand its pointers to a replacement. Stop for user direction if no higher setting is available or repeated attempts cannot progress.
+After a struggling attempt, diagnose what blocked it from the worker's evidence. Resolve missing requirements, permissions, or tools separately. Retry on the same model or a cheaper one, with a narrower task, better context, or a proposed effort adjustment where useful; a retry or replacement must never increase the worker's model cost tier. Preserve existing work and route the retry to the same worker where supported, or hand its pointers to an eligible replacement. Stop for user direction if no suitable setting is available within these limits or repeated attempts cannot progress.
 
 ## 3. Dispatch and track
 
@@ -49,7 +51,8 @@ For example:
 Implement <ticket reference> in <isolated project checkout> using <fatstack-implement path>.
 Read <tracker path>, <requirements path>, and the project instructions there.
 Base: <verified base revision>. Relevant decisions: <paths>. Prior work: <commit/PR pointers>.
-Settings: <available model and effort>. Requested implementation: <scope>. Explicit user limits: <limits or none>.
+Settings: <available model and effort>. Delegation ceiling: <this worker's model>; any further delegation must use this model or a cheaper one, including retries and reviews.
+Requested implementation: <scope>. Explicit user limits: <limits or none>.
 Return branch, PR or pending action, verified status, check results, and blockers.
 ```
 
