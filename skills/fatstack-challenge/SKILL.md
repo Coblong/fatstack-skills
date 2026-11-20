@@ -16,15 +16,18 @@ Question the user about a feature until you both understand the work in the same
 
 ## Ask in rounds
 
-Each round, ask up to five numbered questions. Ask only questions you can ask now: leave questions that depend on an unanswered one for a later round. Give your recommended answer with each so the user can accept it quickly.
+Each round, ask up to five numbered questions. Ask only questions you can ask now: leave questions that depend on an unanswered one for a later round. Give your recommended answer with each. Recommendations are accepted by default when the user replies to the round; the user only needs to answer questions where they want a different answer or more discussion.
 
 ```markdown
 **1. <Short title>**
 <The question, with options if there are any.>
-Recommended: <your answer and why, in a sentence>
+
+**Recommended:** <your answer and why, in a sentence>
 ```
 
-Wait for the answers before the next round. Fewer, sharper questions beat a long list.
+Tell the user they can reply only with changes and that all other recommendations will be accepted. Wait for a reply before the next round. Apply their answers to the questions they address and mark the remaining recommendations as confirmed by default acceptance. For example, if you ask five questions and the user answers only Q3, accept the recommendations for Q1, Q2, Q4, and Q5. If the user defers a question or expresses uncertainty about it, keep it open. Silence before any reply does not accept a round.
+
+Fewer, sharper questions beat a long list.
 
 Find facts yourself. If the code, docs, or tools can answer something, look it up instead of asking. Put decisions to the user.
 
@@ -43,7 +46,7 @@ Work through what matters for this feature, skipping what does not apply:
 
 While talking, apply `fatstack-context`: challenge vague or conflicting terms, test ideas with concrete examples, and check claims against the code. Keep a list of proposed glossary terms and decisions.
 
-Track each point as **confirmed** (the user said so), **assumed** (you proposed it and the user has not confirmed it), or **open** (still unknown). Never present an assumption as confirmed.
+Track each point as **confirmed** (the user stated it, explicitly accepted it, or accepted a round recommendation by default), **assumed** (a proposal outside an answered round that the user has not accepted), or **open** (still unknown or explicitly deferred). Note default acceptance in the record so its basis is clear. Never present an assumption as confirmed.
 
 ## Know when to stop
 
@@ -68,7 +71,7 @@ Write `docs/fatstack/features/<feature-slug>/challenge.md`:
 
 ## Confirmed
 
-- <Decision or fact the user confirmed.>
+- <Decision or fact the user confirmed, noting default acceptance where applicable.>
 
 ## Assumptions
 
