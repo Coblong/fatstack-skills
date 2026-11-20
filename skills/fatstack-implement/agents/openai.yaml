@@ -2,4 +2,4 @@ interface:
   display_name: "Fatstack Implement"
   short_description: "Implement a ticket test-first and hand off a PR"
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true
